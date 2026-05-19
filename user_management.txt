@@ -1,0 +1,7 @@
+List all users                  
+cat /etc/passwd | cut -d: -f1
+Add user                        sudo adduser username
+Set password                    sudo passwd username
+View config file                cat /etc/passwd
+Rename user                     sudo usermod -l newname oldname 
+Delete user                     sudo userdel username

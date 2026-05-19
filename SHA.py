@@ -1,0 +1,11 @@
+import hashlib
+s1=input("enter string 1:")
+s2=input("enter string 2:")
+hash1=hashlib.sha256(s1.encode()).hexdigest()
+hash2=hashlib.sha256(s2.encode()).hexdigest()
+print("Hash of string 1:", hash1)
+print("Hash of string 2:", hash2)
+h1_int=int(hash1,16)
+h2_int=int(hash2,16)
+diff=bin(h1_int^h2_int).count("1")
+print("Number of different bits:", diff)

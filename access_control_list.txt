@@ -1,0 +1,26 @@
+# Create file
+touch myfile
+
+# View current ACL
+getfacl myfile
+
+# Add read and write permissions to  user 'student' 
+setfacl -m u:student:rw myfile
+
+# Verify the modified ACL entries
+getfacl myfile
+
+# Add read permissions for a  group (eg; 'staff') 
+setfacl -m g:staff:r myfile
+
+# Verify the group ACL entry
+getfacl myfile
+
+# Remove specific user's ACL entry
+setfacl -x u:student myfile
+
+# Remove ALL ACL entries
+setfacl -b myfile
+
+# Final check
+getfacl myfile

@@ -1,0 +1,35 @@
+# View permissions
+ls -l
+
+# Create file & directory
+touch file.txt
+mkdir mydir
+
+# Add permissions (symbolic)
+chmod u+x file.txt   # add execute for user
+chmod g+w file.txt   # add write for group
+chmod o+r file.txt   # add read for others
+
+# Remove permissions
+chmod u-x file.txt
+chmod g-w file.txt
+chmod o-r file.txt
+
+# Assign permission to all users
+chmod a+rwx file.txt
+
+# Set exact permissions(symbolic mode)
+chmod u=rwx,g=rx,o=r file.txt
+
+# Numeric mode (most common in exams)
+chmod 777 file.txt   # rwxrwxrwx (all access)
+chmod 755 file.txt   # rwxr-xr-x (standard)
+chmod 644 file.txt   # rw-r--r-- (files)
+
+# Change Directory permissions
+chmod 755 mydir
+chmod 700 mydir 
+
+# Verify
+ls -l file.txt
+ls -ld mydir
