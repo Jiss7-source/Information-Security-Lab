@@ -1,16 +1,8 @@
-def gcd(a, b):
-    while b: a, b = b, a % b
-    return a
-
-def mod_inverse(e, phi):
-    for d in range(1, phi):
-        if (e * d) % phi == 1:
-            return d
+from sympy import mod_inverse, gcd
 
 def simple_hash(msg):
     h = 0
-    for ch in msg:
-        h = (h * 31 + ord(ch))
+    for ch in msg: h = h * 31 + ord(ch)
     return h
 
 p, q = 11, 17
@@ -27,13 +19,10 @@ msg = input("Enter message: ")
 h = simple_hash(msg)
 print("Hash:", h)
 
-signature = pow(h, d, n)      # Sign with private key
+signature = pow(h, d, n)
 print("Signature:", signature)
 
-verified = pow(signature, e, n)  # Verify with public key
+verified = pow(signature, e, n)
 print("Verified Hash:", verified)
 
-if verified == h % n:
-    print("Signature VALID")
-else:
-    print("Signature INVALID")
+print("Signature VALID" if verified == h % n else "Signature INVALID")
